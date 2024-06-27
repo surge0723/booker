@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
   <main>
-    <% flash.each do |message_type, message| %>
-      <div class="flash-message <%= message_type %>"><%= message %></div>
-    <% end %>    <%= yield %>
+  <div class="flash-message notice">
+      <%= flash[:notice] %>
+  </div>
+  <%= yield %>
+  
   </main>
   <head>
     <title>Booker</title>
@@ -14,5 +16,4 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
 </html>

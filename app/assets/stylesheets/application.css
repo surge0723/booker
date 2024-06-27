@@ -23,11 +23,6 @@ body {
   margin:33px;
 }
 
-.list-wrap {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 p{
   margin:33px;
 }
@@ -35,8 +30,26 @@ p{
 .flash-message.notice {
   color: green;
 }
- 
-.flash-message.alert {
-  color: red;
 
+.error-messages{
+  width:450px;
+  border:2px solid red;
+  padding:5px;
+  background-color: red;
+  color:white;
+}
+
+.error-messages ul{
+
+  border:2px solid red;
+  padding:7px;
+  background-color:#f0f0f0;
+  color:black;
+}
+
+.error-messages ul li{
+  width:450px;
+  font-size: 12px;
+  margin-left: 20px;
+  list-style-type:disc;
 }

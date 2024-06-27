@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+  <main>
+    <% flash.each do |message_type, message| %>
+      <div class="flash-message <%= message_type %>"><%= message %></div>
+    <% end %>    <%= yield %>
+  </main>
   <head>
     <title>Booker</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,7 +15,4 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
 </html>

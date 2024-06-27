@@ -9,20 +9,35 @@ class BooksController < ApplicationController
   end
   
   def create
-    @book = Book.new(book_params)
+    @book=Book.new(book_params)
     if @book.save
-      redirect_to @book, notice: 'List was successfully created.'
+      flash[:notice]="List was successfully created."
+      redirect_to @book
     else
-      render :new
+      flash[:alert]="投稿ミス"
+      render :index
     end
   end
 
-
   def show
-    @book = Book.find(params[:id])
+    @book=Book.find(params[:id])
   end
 
   def edit
+    @book=Book.find(params[:id])
+  end
+  
+  def destroy
+    book=Book.find(params[:id])  # データ（レコード）を1件取得
+    book.destroy  # データ（レコード）を削除
+    redirect_to '/books'  # 投稿一覧画面へリダイレクト  
+  end
+  
+  def update
+    book=Book.find(params[:id])
+    if book.update(book_params)
+      redirect_to book_path(book.id)
+    end
   end
 
   private
